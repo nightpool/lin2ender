@@ -15,7 +15,7 @@ export const withColor = (color, func) => {
 }
 
 export const clear = () => {
-    withColor('white', () => context.fillRect(0, 0, width * pixel_size, height * pixel_size));
+  withColor('white', () => context.fillRect(0, 0, width * pixel_size, height * pixel_size));
 }
 
 export const pixel = (x, y) => context.fillRect(
