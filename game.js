@@ -1,6 +1,7 @@
 import {range, any} from './util.js';
 import {pixel, width, height, withColor} from './canvas.js';
 import {end} from './script.js';
+import {eat, tele} from './audio.js';
 
 const board = range(width).map(() => range(height).map(() => false));
 range(height).map(y => {
@@ -36,6 +37,8 @@ export const game = () => {
   const fruitsCells = fruit.map(cellsForFruit);
   fruitsCells.forEach((fruitCells, i) => {
     if (any(fruitCells, p => posEquals(p, position))) {
+      eat.currentTime = 0;
+      eat.play();
       fruit.splice(i, 1, randCell());
     }
   });
@@ -46,6 +49,8 @@ export const game = () => {
 
   if (board[nextX] && board[nextX][nextY]) {
     [nextX, nextY] = findNextWall([nextX, nextY], direction);
+    tele.currentTime = 0;
+    tele.play();
   }
 
   if (outOfBounds(nextX, nextY)) {
