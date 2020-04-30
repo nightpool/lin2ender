@@ -26,7 +26,7 @@
         text-align: center;
       }
 
-      canvas {
+      #main {
         background: white;
         margin: 2em auto;
         display: block;
@@ -34,12 +34,11 @@
         image-rendering: crisp-edges;
       }
       
-      canvas:after {
+      #score {
         display: block;
         position: absolute;
         left: 100%;
         padding-left: 1rem;
-        content: '0';
         font-family: 'IBM Plex Mono';
       }
     </style>
@@ -53,6 +52,7 @@
     <h1>why do they call it oven when you of in the cold food of out hot eat the food</h1>
 
     <canvas id="main" width="400" height="400"></canvas>
+    <span id="score">0</span>
 
     <footer><a href="https://ded.increpare.com/~locus/linebender/">with deep gratitude to increpare, game designer extraordinaire</a></footer>
   </body>
