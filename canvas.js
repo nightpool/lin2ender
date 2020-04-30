@@ -7,6 +7,14 @@ const context = document.getElementById('main').getContext('2d', {
   alpha: false,
 });
 
+export let fontReady = false;
+document.fonts.load("500 2rem 'IBM Plex Mono'")
+  .then(() => fontReady = true)
+  .catch(() => fontReady = true);
+
+context.font = "500 2rem 'IBM Plex Mono'";
+context.textAlign = 'center';
+
 export const withColor = (color, func) => {
   const oldFill = context.fillStyle;
   context.fillStyle = color;
@@ -14,21 +22,12 @@ export const withColor = (color, func) => {
   context.fillStyle = oldFill;
 }
 
-export const withFont = (font, func) => {
-  const oldfont = context.font;
-  context.font = font;
-  func();
-  context.font = oldfont;
-}
-
 export const clear = () => {
   withColor('white', () => fill(0, 0, width, height));
 }
 
 export const text = (x, y, text) => {
-  withColor('black',
-    () => withFont("500 2rem 'IBM Plex Mono'",
-    () => context.fillText(text, x * pixelSize, y * pixelSize)));
+  withColor('black', () => context.fillText(text, x * pixelSize, y * pixelSize));
 }
 
 export const pixel = (x, y) => context.fillRect(

@@ -1,4 +1,4 @@
-import {withColor, clear, text} from './canvas.js';
+import {height, width, withColor, clear, text} from './canvas.js';
 import {game, paintBoard} from './game.js'
 
 let state = start;
@@ -26,7 +26,9 @@ export function end() {
 
 let space = false;
 export function start() {
-  text(10, 10, "press space")
+  if (document.fonts.check("500 2rem 'IBM Plex Mono'")) {
+    text(width / 2, height / 2, "press space")
+  }
   if (space) {
     space = false;
     return game;
