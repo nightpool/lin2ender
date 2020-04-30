@@ -4,13 +4,14 @@
     <title>Hello!</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap" rel="stylesheet">
 
     <style>
       body {
         background: black;
         color: white;
-        font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+        font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;  
         margin: 2em;
         max-width: 550px;
       }
@@ -30,15 +31,26 @@
         margin: 2em auto;
         display: block;
         image-rendering: pixelated;
+        image-rendering: crisp-edges;
       }
-
-      @font-face {
+      
+      canvas:after {
+        display: block;
+        position: absolute;
+        left: 100%;
+        padding-left: 1rem;
+        content: '0';
+        font-family: 'IBM Plex Mono';
+      }
+      
+/*       @font-face {
         font-family: '8bit';
         src: url('https://cdn.glitch.com/c169353c-be27-4bf3-bc8e-ff00fadef732%2F8-BIT%20WONDER.TTF?v=1574872913986');
-      }
+      } */
+      
+      
     </style>
 
-    <!-- import the webpage's javascript file -->
     <script src="script.js" type="module"></script>
   </head>
   <body>
