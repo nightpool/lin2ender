@@ -1,5 +1,5 @@
 import {height, width, withColor, clear, text, fontReady} from './canvas.js';
-import {game, paintBoard} from './game.js'
+import {game, paintBoard} from './game.js';
 
 let state = start;
 let frame = 0;
