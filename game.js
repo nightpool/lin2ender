@@ -3,18 +3,21 @@ import {pixel, width, height, withColor} from './canvas.js';
 import {end} from './script.js';
 import {eat as playEat, tele as playTele} from './audio.js';
 
-const board = range(width).map(() => range(height).map(() => false));
-range(height).map(y => {
-  board[50][y] = true;
-  board[70][y] = true;
-});
+let board, fruit, position, direction;
+const init = () => {
+  board = range(width).map(() => range(height).map(() => false));
+  range(height).map(y => {
+    board[50][y] = true;
+    board[70][y] = true;
+  });
 
-const fruit = range(3).map(randCell);
+  fruit = range(3).map(randCell);
 
-let position  = [4, 5];
-let direction = [1, 0];
+  position  = [4, 5];
+  direction = [1, 0]; 
+}
+
 let nextDirection = undefined;
-
 addEventListener('keydown', event => {
   const directionFromKeypress = ({
     ArrowUp:    [0, -1],
@@ -66,6 +69,7 @@ export const game = () => {
     fruitsCells.forEach(f => f.forEach(([x, y]) => pixel(x, y)));
   })
 }
+game.init = init;
 
 export const paintBoard = () => {
   board.forEach((row, x) => row.forEach((item, y) => item && pixel(x, y)));

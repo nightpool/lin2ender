@@ -1,4 +1,4 @@
-import {height, width, withColor, clear, text} from './canvas.js';
+import {height, width, withColor, clear, text, fontReady} from './canvas.js';
 import {game, paintBoard} from './game.js'
 
 let state = start;
@@ -15,18 +15,24 @@ const mainLoop = () => {
 
   const next = state();
   if (next) {
+    next.init();
     state = next;
   }
 }
 requestAnimationFrame(mainLoop);
 
+let init = false;
 export function end() {
   withColor('red', paintBoard);
+  if (space) {
+    space = false;
+    return game;
+  }
 }
 
 let space = false;
 export function start() {
-  if (document.fonts.check("500 2rem 'IBM Plex Mono'")) {
+  if (fontReady) {
     text(width / 2, height / 2, "press space")
   }
   if (space) {
