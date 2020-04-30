@@ -1,6 +1,6 @@
-const pixel_size = 4;
-export const width = 400 / pixel_size;
-export const height = 400 / pixel_size;
+const pixelSize = 4;
+export const width = 400 / pixelSize;
+export const height = 400 / pixelSize;
 
 const context = document.getElementById('main').getContext('2d', {
   desynchronized: true,
@@ -15,12 +15,17 @@ export const withColor = (color, func) => {
 }
 
 export const clear = () => {
-  withColor('white', () => context.fillRect(0, 0, width * pixel_size, height * pixel_size));
+  withColor('white', () => fill(0, 0, width, height));
 }
 
 export const pixel = (x, y) => context.fillRect(
-  x * pixel_size, y * pixel_size,
-  pixel_size, pixel_size
+  x * pixelSize, y * pixelSize,
+  pixelSize, pixelSize
+);
+
+export const fill = (x, y, width, height) => context.fillRect(
+  x * pixelSize, y * pixelSize,
+  width * pixelSize, height * pixelSize
 );
 
 clear();
