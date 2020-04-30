@@ -3,7 +3,7 @@ import {pixel, width, height, withColor} from './canvas.js';
 import {end} from './script.js';
 import {eat as playEat, tele as playTele} from './audio.js';
 
-let board, fruit, position, direction;
+let board, fruit, position, direction, nextDirection;
 const init = () => {
   board = range(width).map(() => range(height).map(() => false));
   range(height).map(y => {
@@ -17,9 +17,9 @@ const init = () => {
   direction = [1, 0];
   
   window.score.textContent = '';
+  nextDirection = undefined;
 }
 
-let nextDirection = undefined;
 addEventListener('keydown', event => {
   const directionFromKeypress = ({
     ArrowUp:    [0, -1],
