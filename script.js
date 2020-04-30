@@ -1,4 +1,4 @@
-import {withColor, clear} from './canvas.js';
+import {withColor, clear, text} from './canvas.js';
 import {game, paintBoard} from './game.js'
 
 let state = start;
@@ -11,7 +11,7 @@ const mainLoop = () => {
     return;
   }
 
-  clear();
+  // clear();
 
   const next = state();
   if (next) {
@@ -26,6 +26,7 @@ export function end() {
 
 let space = false;
 export function start() {
+  text(10, 10, "hey")
   if (space) {
     space = false;
     return game;

@@ -14,8 +14,21 @@ export const withColor = (color, func) => {
   context.fillStyle = oldFill;
 }
 
+export const withFont = (font, func) => {
+  const oldfont = context.font;
+  context.font = font;
+  func();
+  context.font = oldfont;
+}
+
 export const clear = () => {
   withColor('white', () => fill(0, 0, width, height));
+}
+
+export const text = (x, y, text) => {
+  withColor('black',
+    () => withFont("2em IBM Plex Mono",
+    () => context.fillText(text, x * pixelSize, y * pixelSize)));
 }
 
 export const pixel = (x, y) => context.fillRect(
