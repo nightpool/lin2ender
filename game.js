@@ -37,9 +37,9 @@ export const game = () => {
   const fruitsCells = fruit.map(cellsForFruit);
   fruitsCells.forEach((fruitCells, i) => {
     if (any(fruitCells, p => posEquals(p, position))) {
-      eat.currentTime = 0;
-      eat.play();
+      eat.cloneNode().play();
       fruit.splice(i, 1, randCell());
+      window.score.textContent = Number(window.score.textContent) + 1;
     }
   });
 
@@ -49,8 +49,7 @@ export const game = () => {
 
   if (board[nextX] && board[nextX][nextY]) {
     [nextX, nextY] = findNextWall([nextX, nextY], direction);
-    tele.currentTime = 0;
-    tele.play();
+    tele.cloneNode().play();
   }
 
   if (outOfBounds(nextX, nextY)) {
