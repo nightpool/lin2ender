@@ -58,7 +58,6 @@ export const game = () => {
   }
 
   if (outOfBounds(nextX, nextY)) {
-    end();
     return end;
   }
 

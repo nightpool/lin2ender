@@ -28,7 +28,7 @@ export function end() {
     return game;
   }
 }
-end.init = end;
+end.init = () => { space = false; end() };
 
 let space = false;
 export function start() {
