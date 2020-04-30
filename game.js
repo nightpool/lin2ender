@@ -14,7 +14,9 @@ const init = () => {
   fruit = range(3).map(randCell);
 
   position  = [4, 5];
-  direction = [1, 0]; 
+  direction = [1, 0];
+  
+  window.score.textContent = '';
 }
 
 let nextDirection = undefined;

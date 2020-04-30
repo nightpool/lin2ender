@@ -15,7 +15,7 @@ const mainLoop = () => {
 
   const next = state();
   if (next) {
-    next.init();
+    if (next.init) { next.init(); }
     state = next;
   }
 }
