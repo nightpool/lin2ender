@@ -21,7 +21,6 @@ const mainLoop = () => {
 }
 requestAnimationFrame(mainLoop);
 
-let init = false;
 export function end() {
   withColor('red', paintBoard);
   if (space) {
@@ -29,6 +28,7 @@ export function end() {
     return game;
   }
 }
+end.init = end;
 
 let space = false;
 export function start() {
