@@ -27,7 +27,7 @@ export const clear = () => {
 
 export const text = (x, y, text) => {
   withColor('black',
-    () => withFont("2em IBM Plex Mono",
+    () => withFont("500 2rem 'IBM Plex Mono'",
     () => context.fillText(text, x * pixelSize, y * pixelSize)));
 }
 
